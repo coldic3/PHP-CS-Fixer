@@ -1051,6 +1051,31 @@ $this
                     ];
                 ',
             ],
+            [
+                '<?php
+                    class Foo
+                    {
+                        public function bar(): bool
+                        {
+                            return
+                                $this->foo &&
+                                $this->bar
+                            ;
+                        }
+                    }
+                ',
+                '<?php
+                    class Foo
+                    {
+                        public function bar(): bool
+                        {
+                            return
+                                $this->foo &&
+                                $this->bar;
+                        }
+                    }
+                ',
+            ],
         ];
     }
 
